@@ -273,7 +273,7 @@ public static News readNewsObject(String s) {
 该排序算法如下所示：
 
 <div align=center>
-    <img src="pics\资讯排序算法.png" height="60" />
+    <img src="pics\资讯排序算法.png" height="48" />
 </div>
 
 Score：资讯的分值，为 double 型，分值越大表示越受欢迎
