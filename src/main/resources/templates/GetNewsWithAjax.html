@@ -1,0 +1,87 @@
+
+
+#set($cur_date = '')
+#foreach($vo in $vos)
+#if ($cur_date != $date.format('yyyy-MM-dd', $vo.news.createdDate))
+#if ($foreach.index > 0)
+</div> ## 上一个要收尾
+#end
+#set($cur_date = $date.format('yyyy-MM-dd', $vo.news.createdDate))
+<!--                    <h3 class="date">-->
+<!--                        <i class="fa icon-calendar"></i>-->
+<!--                        <span>头条资讯 &nbsp; $date.format('yyyy-MM-dd', $vo.news.createdDate)</span>-->
+<!--                    </h3>-->
+<div class="posts" >
+    #end
+    <div class="post">
+        <div class="votebar">
+            #if ($vo.like > 0)
+            <button class="click-like up pressed" data-id="$!{vo.news.id}" title="赞同"><i class="vote-arrow"></i><span
+                    class="count">$!{vo.news.likeCount}</span></button>
+            #else
+            <button class="click-like up" data-id="$!{vo.news.id}" title="赞同"><i class="vote-arrow"></i><span
+                    class="count">$!{vo.news.likeCount}</span></button>
+            #end
+            #if($vo.like < 0)
+            <button class="click-dislike down pressed" data-id="$!{vo.news.id}" title="反对"><i class="vote-arrow"></i>
+            </button>
+            #else
+            <button class="click-dislike down" data-id="$!{vo.news.id}" title="反对"><i class="vote-arrow"></i></button>
+            #end
+        </div>
+        <div class="content" onclick="window.open('/news/$!{vo.news.id}')">
+            <div >
+                <img class="content-img" src="$!{vo.news.image}" alt="">
+            </div>
+            <div class="content-main">
+                <h3 class="title">
+                    <span target="_blank" rel="external nofollow" style="font-size: 16px;color: #063642;">$!{vo.news.title}</span>
+                </h3>
+                <div class="meta">
+                    $!{vo.news.link.split("_%_").get(0)} &nbsp;&nbsp;
+
+                    #set($timeDiff = ($date.getSystemTime()-$vo.news.createdDate.getTime()))
+                    #if($timeDiff < 5*60*1000)   ##发布时间在过去5分钟内显示“刚刚”
+                    #set($timeDisplay = "刚刚")
+                    $timeDisplay
+                    #elseif($timeDiff < 60*60*1000)   ##发布时间在5分钟-1小时显示“xx分钟前”
+                    #set($timeDisplay = $timeDiff / 60 / 1000)
+                    $timeDisplay分钟前
+                    #elseif($timeDiff < 24*60*60*1000)   ##发布时间在1小时-24小时显示“xx小时前”
+                    #set($timeDisplay = $timeDiff / 60 / 60 / 1000)
+                    $timeDisplay小时前
+                    #elseif($timeDiff < 7*24*60*60*1000)   ##发布时间在24小时-1周显示“xx天前”
+                    #set($timeDisplay = $timeDiff /24 / 60 / 60 / 1000)
+                    $timeDisplay天前
+                    #elseif($timeDiff < 30*24*60*60*1000)   ##发布时间在1周-30天显示“x周前”
+                    #set($timeDisplay = $timeDiff / 7 /24 / 60 / 60 / 1000)
+                    $timeDisplay周前
+                    #elseif($timeDiff < 365*24*60*60*1000)   ##发布时间在30天-365天显示“xx个月前”
+                    #set($timeDisplay = $timeDiff / 30 /24 / 60 / 60 / 1000)
+                    $timeDisplay个月前
+                    #else   ##否则，发布时间在365天以前，显示“xx年前”
+                    #set($timeDisplay = $timeDiff / 365 /24 / 60 / 60 / 1000)
+                    $timeDisplay年前
+                    #end
+                    &nbsp;
+                    <span>
+                        <i class="fa icon-comment"></i> $!{vo.news.commentCount}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="user-info">
+            <div class="user-avatar">
+                <a href="/user/$!{vo.user.id}/"><img width="50" class="img-circle" src="$!{vo.user.headUrl}"></a>
+            </div>
+        </div>
+
+        <div class="subject-name">来自 <a href="/user/$!{vo.user.id}/">$!{vo.user.name}</a></div>
+    </div>
+    #if ($foreach.count == $vos.size()) ##最后有个元素要收尾
+</div>
+#end
+
+#end
+
+<p id="ajaxLoadNews">点击加载更多</p>
