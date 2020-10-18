@@ -214,9 +214,9 @@ public static News readNewsObject(String s) {
 
 为了降低系统各组件间的耦合性，并对流量进行削峰，从而提高系统性能，项目自行实现了一个简易的消息队列，在业务代码中仅需将事件加入消息队列，该事件对应的后续操作将异步完成。该消息队列的结构如下图所示：
 
-<img src="pics\Headlines-消息队列-结构图.png" alt="Headlines-消息队列-结构图" style="zoom: 33%;" />
-
-
+<div align="center">
+  <img src="pics/Headlines-消息队列-结构图.png">
+</div>
 
 在具体的业务代码（Biz）中，调用 EventProducer 类的 fireEvent() 方法，将事件对象序列化后推入由 Redis Lists 实现的事件队列中，而 EventConsumer 则会阻塞地从事件队列中取出事件，反序列化后交给对应的 EventHandler 执行预定义的操作。
 
@@ -273,9 +273,9 @@ public static News readNewsObject(String s) {
 #### 	算法说明
 
 该排序算法如下所示：
-$$
-\text {Score}=\frac{\text {likeCount}+5 * \text {commentCount}+1}{(\text {hoursSinceCreated}+2)^{2}}
-$$
+<div align="center">
+  <img src="pics/资讯排序算法.png">
+</div>
 Score：资讯的分值，为 double 型，分值越大表示越受欢迎
 
 likeCount：资讯的点赞数
