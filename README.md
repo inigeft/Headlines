@@ -219,7 +219,7 @@ public static News readNewsObject(String s) {
 
 为了降低系统各组件间的耦合性，并对流量进行削峰，从而提高系统性能，项目自行实现了一个简易的消息队列，在业务代码中仅需将事件加入消息队列，该事件对应的后续操作将异步完成。该消息队列的结构如下图所示：
 
-<img src="C:\Users\CHM\Desktop\项目课\Headlines-消息队列-结构图.png" alt="Headlines-消息队列-结构图" style="zoom: 33%;" />
+<img src="pics\Headlines-消息队列-结构图.png" alt="Headlines-消息队列-结构图" style="zoom: 33%;" />
 
 
 
