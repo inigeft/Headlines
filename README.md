@@ -1,4 +1,8 @@
-<center><h1>Headlines</h1></center>
+<div align="center">
+    <h1>
+        Headlines
+    </h1>
+</div>
 
 * [项目简述](#%E9%A1%B9%E7%9B%AE%E7%AE%80%E8%BF%B0)
 * [在线演示](#%E5%9C%A8%E7%BA%BF%E6%BC%94%E7%A4%BA)
