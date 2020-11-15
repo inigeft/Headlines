@@ -14,6 +14,7 @@ public class ToutiaoUtil {
     private static final Logger logger = LoggerFactory.getLogger(ToutiaoUtil.class);
 
     public static String QINIU_DOMAIN_PREFIX = "http://qic4ku9l7.hd-bkt.clouddn.com/";
+    public static String AliOss_DOMAIN_PREFIX = "https://headlines10.oss-cn-beijing.aliyuncs.com/";
     public static String TOUTIAO_DOMAIN = "http://117.78.7.107:8080/";
     public static String IMG_DIR = "D:/upload/";
     public static String[] IMG_FILE_EXTD = new String[]{"png", "jpg", "jpeg", "bmp"};

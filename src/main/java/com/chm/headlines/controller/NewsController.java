@@ -34,6 +34,9 @@ public class NewsController {
     QiniuService qiniuService;
 
     @Autowired
+    AliOssService aliOssService;
+
+    @Autowired
     HostHolder hostHolder;
 
     @Autowired
@@ -131,9 +134,14 @@ public class NewsController {
     @ResponseBody
     public String uploadImage(@RequestParam("file") MultipartFile file) {   //@RequestParam中的两个file分别代表什么？
         try {
+            //最初使用七牛云的对象存储服务
 //            String fileUrl = newsService.saveImage(file);
             //也建议熟悉方法file.transferTo()的使用
-            String fileUrl = qiniuService.savaImage(file);
+//            String fileUrl = qiniuService.savaImage(file);
+
+            //改为使用阿里云的对象存储服务
+            String fileUrl = aliOssService.savaImage(file);
+
 
             if (fileUrl == null) {
                 return ToutiaoUtil.getJSONString(1, "上传图片失败");
