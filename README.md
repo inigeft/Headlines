@@ -43,13 +43,13 @@
 
 本系统运行在一台云服务器上。
 
-* CPU: 1 Intel SkyLake 6161 2.2GHz
-* 内存：2GB
+* CPU: 2 Cores
+* 内存：4 GiB
 
-* 系统：CentOS 7.3 64bit
-* MySQL: Ver 8.0.20 
+* 系统：CentOS 8.0 64-bit
+* MySQL: Ver 5.6.49
 * Tomcat: Ver 8.5.12
-* Redis: Ver 6.0.6
+* Redis: Ver 6.0.9
 
 ### 性能测试
 
