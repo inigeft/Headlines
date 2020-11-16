@@ -21,8 +21,9 @@ public class AliOssService {
     private static String endpoint = "oss-cn-beijing.aliyuncs.com";
 
     //下面是RAM子账户的密钥对，以确保主账号安全
-    private static String accessKeyId = "LTAI4G91BPfULMTwvFSS3GEx";
-    private static String accessKeySecret = "EOkUjLTrZFfOs0kTdzbOrVrPUaPoI8";
+    //还是给我的密钥对打个码吧，防君子不防xx
+    private static String accessKeyId = "***Your Key Id***";
+    private static String accessKeySecret = "***Your Key Secret***";
 
     private static String bucketName = "headlines10";
 //    private static String key = "*** Provide key ***";
