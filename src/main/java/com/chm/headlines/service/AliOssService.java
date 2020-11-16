@@ -20,8 +20,7 @@ public class AliOssService {
 
     private static String endpoint = "oss-cn-beijing.aliyuncs.com";
 
-    //下面是RAM子账户的密钥对，以确保主账号安全
-    //还是给我的密钥对打个码吧，防君子不防xx
+    //为了账号安全，已隐去具体的的密钥对信息，之前错误提交的代码中包含的密钥对已失效
     private static String accessKeyId = "***Your Key Id***";
     private static String accessKeySecret = "***Your Key Secret***";
 
